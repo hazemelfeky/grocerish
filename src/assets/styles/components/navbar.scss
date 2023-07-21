@@ -1,0 +1,98 @@
+.navbar {
+  border-bottom: 1px solid $base-color;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .navbar__user {
+    display: none;
+
+    @include devices(md) {
+      & {
+        display: block;
+      }
+    }
+  }
+
+  .navbar_browse--btn {
+    padding: 0.5rem 1rem;
+    background-color: $base-color;
+    color: $background;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    svg {
+      color: $background;
+    }
+  }
+
+  .navbar__pages {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      &:hover {
+        color: $base-color;
+      }
+    }
+  }
+
+  .navbar__call {
+    display: flex;
+    gap: 1rem;
+
+    .navbar__call__number {
+      color: $base-color;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .navbar__call__note {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @include devices(md) {
+    & {
+      position: absolute;
+      transform: translateX(200%);
+      transition: all 0.15s ease-in-out;
+    }
+
+    &.visable {
+      transform: translateX(0);
+      width: 100%;
+
+      .wrapper {
+        flex-direction: column;
+        align-items: center;
+        background-color: $background;
+        max-width: unset;
+      }
+    }
+
+    .navbar__pages {
+      flex-direction: column;
+    }
+  }
+}

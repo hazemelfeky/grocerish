@@ -1,0 +1,19 @@
+.user__profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .user__profile__img {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid $base-color;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+}

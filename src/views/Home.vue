@@ -1,9 +1,17 @@
 <script setup>
-import Controls from '../components/Controls.vue';
+
+const navIsVisable = ref(false);
+
+const toggleNav = () => {
+  navIsVisable.value = !navIsVisable.value;
+};
 </script>
 
 <template>
   <div>
-    <Controls />
+    <SectionsControls @toggle-nav="toggleNav" />
+    <SectionsNavbar :navIsVisable="navIsVisable" />
+    <SectionsHero />
+    <SectionsCategories />
   </div>
 </template>

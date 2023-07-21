@@ -1,68 +1,60 @@
-@import './mixins.scss';
-@import './variables.scss';
+@import "./mixins.scss";
+@import "./variables.scss";
+@import "./components/appUser.scss";
+@import "./components/controls.scss";
+@import "./components/navbar.scss";
+@import "./components/hero.scss";
 
 * {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+svg {
+  color: $base-text;
+}
 
-  .controls__logo {
-    color: $base-color;
-  }
+body {
+  overflow-x: hidden;
+}
 
-  .controls__user {
-    display: flex;
-    gap: 2rem;
-
-    .controls__user__cart {
-      display: flex;
-
-      .controls__user__cart__icon {
-        position: relative;
-
-        .controls__user__cart__icon__counter {
-          position: absolute;
-          top: 0;
-          right: 0;
-          padding: 0.2rem 0.5rem;
-          background-color: $base-color;
-          color: white;
-          border-radius: 50px 50px;
-        }
-      }
+.wrapper {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 1280px;
+  width: 100%;
+  @include devices(xl) {
+    & {
+      max-width: 1400px;
     }
   }
-
-  .controls__search {
-    border: 1px solid $base-color;
-    display: flex;
-
-    .controls__search__input {
-      border: none;
-      padding: 0.75rem 1rem;
-      width: 15rem;
-      outline: none;
-    }
-
-    .controls__search__btn {
-      background-color: inherit;
-      border: none;
-      padding: 0.5rem;
+  @include devices(lg) {
+    & {
+      max-width: 1080px;
     }
   }
-
   @include devices(md) {
-    .controls__search {
-      display: none;
+    & {
+      max-width: 767px;
     }
   }
-  
+  @include devices(sm) {
+    & {
+      max-width: 480px;
+    }
+  }
+  @include devices(xsm) {
+    & {
+      max-width: 360px;
+    }
+  }
 }

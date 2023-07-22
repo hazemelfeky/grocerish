@@ -1,0 +1,31 @@
+.cards--slider {
+  margin: 1rem 0;
+
+  .cards--slider__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    .cards--slider__header__title {
+      font-size: 2.5rem;
+    }
+
+    .cards--slider__header__btns {
+      display: flex;
+      gap: 0.5rem;
+
+      button {
+        border: none;
+        border-radius: 50%;
+        background-color: transparent;
+        padding: 0.5rem;
+        overflow: hidden;
+        aspect-ratio: 1; /* Set the aspect ratio to 1:1 for a square shape */
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}

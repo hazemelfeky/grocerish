@@ -13,5 +13,6 @@ const toggleNav = () => {
     <SectionsNavbar :navIsVisable="navIsVisable" />
     <SectionsHero />
     <SectionsCategories />
+    <SectionsOffers />
   </div>
 </template>

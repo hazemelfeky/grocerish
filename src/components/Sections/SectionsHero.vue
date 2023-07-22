@@ -1,14 +1,17 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css/navigation";
 
 </script>
 <template>
   <div class="hero">
-    <swiper slides-per-view="1">
-      <swiper-slide :style="{
-        'background-image':
-          'url(https://i.pinimg.com/736x/fe/5c/e0/fe5ce04e5b3bbd20fffcb888f3c77bb4.jpg)',
-      }">
+    <swiper navigation>
+      <swiper-slide
+        :style="{
+          'background-image':
+            'url(https://i.pinimg.com/736x/fe/5c/e0/fe5ce04e5b3bbd20fffcb888f3c77bb4.jpg)',
+        }"
+      >
         <div class="wrapper">
           <h1 class="hero__title">Don’t miss our daily amazing deals.</h1>
           <p class="hero__comment">Save up to 60% off on your first order</p>

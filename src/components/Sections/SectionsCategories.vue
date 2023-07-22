@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import "swiper/css/lazy";
 </script>
 <template>
   <AppCardsSlider title="Explore Categories" slides="6">

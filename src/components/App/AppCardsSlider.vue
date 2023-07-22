@@ -8,25 +8,18 @@ const props = defineProps({
 });
 
 const breakpoints = props.breakpoints ?? {
-  340: {
-    slidesPerView: 1,
-    spaceBetween: 15,
-  },
-  480: {
+  200: {
     slidesPerView: 1,
     spaceBetween: 15,
   },
   640: {
     slidesPerView: props.slides - 4,
-    spaceBetween: 20,
   },
   768: {
     slidesPerView: props.slides - 2,
-    spaceBetween: 40,
   },
   1024: {
     slidesPerView: props.slides - 1,
-    spaceBetween: 50,
   },
 };
 </script>

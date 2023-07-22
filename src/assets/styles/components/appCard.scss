@@ -1,0 +1,10 @@
+.app__card {
+  height: 16rem;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    border-color: $base-color;
+  }
+}

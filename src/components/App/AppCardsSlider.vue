@@ -1,5 +1,6 @@
 <script setup>
 import { Swiper } from "swiper/vue";
+import { Autoplay } from "swiper/modules";
 
 const props = defineProps({
   title: { required: false, default: "Title " },
@@ -10,7 +11,6 @@ const props = defineProps({
 const breakpoints = props.breakpoints ?? {
   200: {
     slidesPerView: 1,
-    spaceBetween: 15,
   },
   640: {
     slidesPerView: props.slides - 4,
@@ -21,6 +21,18 @@ const breakpoints = props.breakpoints ?? {
   1024: {
     slidesPerView: props.slides - 1,
   },
+};
+
+const options = {
+  modules: [Autoplay],
+  rewind: true,
+  autoplay: {
+    delay: 1500,
+  },
+  effect: "fade",
+  slidesPerView: props.slides,
+  spaceBetween: 10,
+  breakpoints,
 };
 </script>
 <template>
@@ -34,11 +46,7 @@ const breakpoints = props.breakpoints ?? {
         </div>
       </div>
       <div class="cards--slider__cards">
-        <swiper
-          :slides-per-view="slides"
-          :space-between="10"
-          :breakpoints="breakpoints"
-        >
+        <swiper v-bind="options">
           <slot />
         </swiper>
       </div>

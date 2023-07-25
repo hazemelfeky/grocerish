@@ -1,11 +1,27 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css/navigation";
+import { Pagination, Navigation, EffectFade, Autoplay, Parallax } from "swiper/modules";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
+// import "swiper/css/parallax";
+// import "swiper/css/effect-fade";
 
+const options = {
+  modules: [Pagination, Navigation, EffectFade, Autoplay, Parallax],
+  pagination: {
+    clickable: true,
+  },
+  navigation: true,
+  parallax:true,
+  rewind: true,
+  autoplay: true,
+  effect: "fade"
+};
 </script>
 <template>
   <div class="hero">
-    <swiper navigation>
+    <swiper v-bind="options">
       <swiper-slide
         :style="{
           'background-image':
@@ -13,9 +29,9 @@ import "swiper/css/navigation";
         }"
       >
         <div class="wrapper">
-          <h1 class="hero__title">Don’t miss our daily amazing deals.</h1>
+          <h1 class="hero__title" :data-swiper-parallax="-100">Don’t miss our daily amazing deals.</h1>
           <p class="hero__comment">Save up to 60% off on your first order</p>
-          <form class="hero__email">
+          <form class="hero__email" :data-swiper-parallax="-230">
             <input class="hero__email__input" placeholder="Email address" />
             <button class="hero__email__btn">Subscribe</button>
           </form>
@@ -28,7 +44,7 @@ import "swiper/css/navigation";
         }"
       >
         <div class="wrapper">
-          <h1 class="hero__title">Don’t 2.</h1>
+          <h1 class="hero__title" :data-swiper-parallax="-200">Don’t 2.</h1>
           <p class="hero__comment">Save up to 60% off on your first order</p>
         </div>
       </swiper-slide>

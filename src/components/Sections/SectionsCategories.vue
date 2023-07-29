@@ -1,12 +1,19 @@
 <script setup>
 import AppCardsSlider from "../App/AppCardsSlider.vue";
 import { SwiperSlide } from "swiper/vue";
+import useVegetablesStore from "../../plugins/vegetablesStore";
 
+const store = useVegetablesStore();
+const categories = computed(() => store.categoriesProducts);
 </script>
 <template>
-  <AppCardsSlider title="Explore Categories" slides="6">
-    <swiper-slide v-for="n in 8" :key="n"> {{ n }} </swiper-slide>
-  </AppCardsSlider>
+  <div>
+    <AppCardsSlider title="Explore Categories" slides="6">
+      <swiper-slide v-for="(value, key) in categories" :key="key">
+        {{ key }} : {{ value }} items
+      </swiper-slide>
+    </AppCardsSlider>
+  </div>
 </template>
 
 <style scoped>

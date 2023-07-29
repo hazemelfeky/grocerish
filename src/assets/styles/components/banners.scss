@@ -1,0 +1,50 @@
+.banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  > div {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    .label {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem 0;
+      background-color: #ffd480;
+      width: fit-content;
+    }
+
+    .shopnow {
+      text-decoration: none;
+      color: unset;
+      padding: 0.5rem 1rem;
+      background-color: #ffd480;
+      width: fit-content;
+    }
+
+    img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 11rem;
+    }
+  }
+
+  .banners__delivery {
+    background-color: #f3b63d3f;
+  }
+
+  .banners__deals {
+    background-color: #60f0b144;
+  }
+
+  @include devices(md) {
+    & {
+      grid-template-columns: 1fr;
+    }
+  }
+}

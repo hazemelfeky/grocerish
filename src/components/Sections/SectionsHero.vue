@@ -1,11 +1,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Navigation, EffectFade, Autoplay, Parallax } from "swiper/modules";
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/navigation";
-// import "swiper/css/parallax";
-// import "swiper/css/effect-fade";
 
 const options = {
   modules: [Pagination, Navigation, EffectFade, Autoplay, Parallax],

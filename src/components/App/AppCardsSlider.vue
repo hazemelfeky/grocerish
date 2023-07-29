@@ -1,6 +1,10 @@
 <script setup>
 import { Swiper } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
 const props = defineProps({
   title: { required: false, default: "Title " },

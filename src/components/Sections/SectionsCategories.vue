@@ -1,11 +1,7 @@
 <script setup>
 import AppCardsSlider from "../App/AppCardsSlider.vue";
 import { SwiperSlide } from "swiper/vue";
-// import "swiper/swiper-bundle.css";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
+
 </script>
 <template>
   <AppCardsSlider title="Explore Categories" slides="6">

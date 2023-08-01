@@ -10,7 +10,7 @@ const categories = computed(() => store.categoriesProducts);
   <div>
     <AppCardsSlider title="Explore Categories" slides="6">
       <swiper-slide v-for="(value, key) in categories" :key="key">
-        {{ key }} : {{ value }} items
+        {{ key }} : {{ value.length }} items
       </swiper-slide>
     </AppCardsSlider>
   </div>

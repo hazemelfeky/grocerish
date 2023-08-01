@@ -8,11 +8,14 @@ export default defineStore("vegetables", {
   }),
   getters: {
     categoriesProducts() {
-      const obj = {};
-      for (const product of this.allProducts) {
-        if (obj[product.family] >= 1) obj[product.family]++;
-        else obj[product.family] = 1;
-      }
+      const obj = this.allProducts.reduce((acc, product) => {
+        const { family } = product;
+        if (!acc[family]) {
+          acc[family] = [];
+        }
+        acc[family].push(product);
+        return acc;
+      }, {});
       return obj;
     },
   },

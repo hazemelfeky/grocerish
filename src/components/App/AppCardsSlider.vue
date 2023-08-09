@@ -1,6 +1,6 @@
 <script setup>
 import { Swiper } from "swiper/vue";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -10,6 +10,7 @@ const props = defineProps({
   title: { required: false, default: "Title " },
   slides: { required: false, default: 5 },
   breakpoints: { required: false },
+  name: { required: false, default: "swiper" },
 });
 
 const breakpoints = props.breakpoints ?? {
@@ -28,8 +29,12 @@ const breakpoints = props.breakpoints ?? {
 };
 
 const options = {
-  modules: [Autoplay],
+  modules: [Navigation, Autoplay],
   rewind: true,
+  navigation: {
+    prevEl: `.${props.name}-swiper-prev`,
+    nextEl: `.${props.name}-swiper-next`,
+  },
   autoplay: {
     delay: 1500,
   },
@@ -45,8 +50,12 @@ const options = {
       <div class="cards--slider__header">
         <h3 class="cards--slider__header__title">{{ title }}</h3>
         <div class="cards--slider__header__btns">
-          <button><Icon icon="mingcute:arrow-left-fill" /></button>
-          <button><Icon icon="mingcute:arrow-right-fill" /></button>
+          <button :class="`${props.name}-swiper-prev`">
+            <Icon icon="mingcute:arrow-left-fill" />
+          </button>
+          <button :class="`${props.name}-swiper-next`">
+            <Icon icon="mingcute:arrow-right-fill" />
+          </button>
         </div>
       </div>
       <div class="cards--slider__cards">

@@ -17,7 +17,7 @@ watch(
 );
 </script>
 <template>
-  <AppCardsSlider title="Featured Products" slides="5">
+  <AppCardsSlider title="Featured Products" slides="5" nmae="offers">
     <swiper-slide v-for="product in products" :key="product">
       <AppCard :product="product" />
     </swiper-slide>

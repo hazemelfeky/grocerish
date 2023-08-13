@@ -8,6 +8,7 @@ export default defineStore("vegetables", {
   }),
   getters: {
     categoriesProducts() {
+      console.log(this.allProducts);
       const obj = this.allProducts.reduce((acc, product) => {
         const { family } = product;
         if (!acc[family]) {
@@ -28,6 +29,16 @@ export default defineStore("vegetables", {
         randomPosition,
         randomPosition + numberOfProducts
       );
+    },
+
+    getRandomPrices(itemsList) {
+      // Adding prices to products because API doesn't have prices to items
+      const PRICES = [12, 15, 7, 9, 17, 8, 14];
+      itemsList = itemsList.map((product) => {
+        const randomIndex = Math.floor(Math.random() * PRICES.length);
+        return { ...product, price: PRICES[randomIndex] };
+      });
+      return itemsList;
     },
   },
 });

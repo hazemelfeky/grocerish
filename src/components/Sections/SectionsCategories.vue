@@ -5,8 +5,6 @@ import useVegetablesStore from "../../plugins/vegetablesStore";
 
 const store = useVegetablesStore();
 const categories = computed(() => store.categoriesProducts);
-// const IMAGES_BASE_URL =
-//   "https://res.cloudinary.com/pizzastev/image/upload/v1690926523/groceyish/";
 </script>
 <template>
   <div class="categories">

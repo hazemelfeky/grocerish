@@ -9,7 +9,7 @@ onMounted(async () => {
   const params = {};
   try {
     const res = await axios.get("fruit/all", { params });
-    store.allProducts = res.data;
+    store.allProducts = store.getRandomPrices(res.data);
   } catch (error) {
     console.error("Error fetching data:", error);
   }

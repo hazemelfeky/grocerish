@@ -1,5 +1,4 @@
 <script setup>
-
 const navIsVisable = ref(false);
 
 const toggleNav = () => {
@@ -9,9 +8,8 @@ const toggleNav = () => {
 
 <template>
   <div>
-    <SectionsHero />
-    <SectionsCategories />
-    <SectionsBanners />
-    <SectionsOffers />
+    <SectionsControls @toggle-nav="toggleNav" />
+    <SectionsNavbar :navIsVisable="navIsVisable" />
+    <slot />
   </div>
 </template>

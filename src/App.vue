@@ -1,7 +1,8 @@
 <script setup>
-import Home from "./views/Home.vue";
-import axios from "./plugins/axios";
-import useVegetablesStore from "./plugins/vegetablesStore";
+import Home from "@/views/Home.vue";
+import axios from "@/plugins/axios";
+import useVegetablesStore from "@/plugins/vegetablesStore";
+import layout from "@/layouts/default.vue";
 
 const store = useVegetablesStore();
 
@@ -17,5 +18,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Home />
+  <layout>
+    <router-view />
+  </layout>
 </template>

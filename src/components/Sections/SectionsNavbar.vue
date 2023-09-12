@@ -1,11 +1,11 @@
 <script setup>
-const props = defineProps({
+defineProps({
   navIsVisable: { type: Boolean },
 });
 </script>
 
 <template>
-  <div class="navbar" :class="{ visable: props.navIsVisable }">
+  <div class="navbar" :class="{ visable: navIsVisable }">
     <div class="wrapper">
       <div class="navbar__user">
         <AppUser />

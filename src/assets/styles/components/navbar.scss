@@ -75,20 +75,21 @@
   @include devices(md) {
     & {
       position: absolute;
-      transform: translateX(200%);
-      transition: all 0.15s ease-in-out;
+      transform: translateX(300%);
+      transition: all 0.2s ease-in-out;
+      z-index: 100;
+    }
+
+    .wrapper {
+      flex-direction: column;
+      align-items: center;
+      background-color: $background;
+      max-width: unset;
     }
 
     &.visable {
       transform: translateX(0);
       width: 100%;
-
-      .wrapper {
-        flex-direction: column;
-        align-items: center;
-        background-color: $background;
-        max-width: unset;
-      }
     }
 
     .navbar__pages {

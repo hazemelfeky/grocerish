@@ -49,5 +49,14 @@ export default defineStore("vegetables", {
       });
       return itemsList;
     },
+    
+    async fetchProduct(id) {
+      try {
+        const res = await axios.get(`fruit/${id}`);
+        this.singleProduct = res.data;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
   },
 });

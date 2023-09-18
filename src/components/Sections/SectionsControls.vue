@@ -19,7 +19,9 @@ import AppUser from '../App/AppUser.vue';
         </div>
         <AppUser class="controls__user__profile" />
       </div>
-      <h3 class="controls__logo">Groceyish</h3>
+      <router-link to="/">
+        <h3 class="controls__logo">Groceyish</h3>
+      </router-link>
       <div class="controls__sidebar--btn" @click="$emit('toggleNav')">
         <Icon icon="tabler:dots" />
       </div>

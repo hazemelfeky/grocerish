@@ -16,13 +16,13 @@ defineProps({
       </a>
       <ul class="navbar__pages">
         <li>
-          <a><Icon icon="ic:outline-home" />Home</a>
+          <router-link to="/"><Icon icon="ic:outline-home" />Home</router-link>
         </li>
         <li>
-          <a><Icon icon="carbon:percentage" />Featured</a>
+          <router-link to="/about"><Icon icon="carbon:percentage" />Featured</router-link>
         </li>
         <li>
-          <a><Icon icon="bxs:hot" />Daily Best Deals</a>
+          <router-link to="/"><Icon icon="bxs:hot" />Daily Best Deals</router-link>
         </li>
       </ul>
       <div class="navbar__call">

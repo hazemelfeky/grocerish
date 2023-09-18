@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import axios from "@/plugins/axios";
 
 export default defineStore("vegetables", {
   state: () => ({
@@ -8,7 +9,6 @@ export default defineStore("vegetables", {
   }),
   getters: {
     categoriesProducts() {
-      console.log(this.allProducts);
       const obj = this.allProducts.reduce((acc, product) => {
         const { family } = product;
         if (!acc[family]) {
@@ -21,6 +21,15 @@ export default defineStore("vegetables", {
     },
   },
   actions: {
+    async fetchProducts() {
+      try {
+        const res = await axios.get("fruit/all");
+        this.allProducts = this.getRandomPrices(res.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
+
     getRandomProducts(numberOfProducts) {
       const min = 0;
       const max = this.allProducts.length - numberOfProducts;

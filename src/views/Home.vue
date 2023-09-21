@@ -1,5 +1,4 @@
 <script setup>
-
 const navIsVisable = ref(false);
 
 const toggleNav = () => {
@@ -13,5 +12,6 @@ const toggleNav = () => {
     <SectionsCategories />
     <SectionsBanners />
     <SectionsOffers />
+    <SectionsAdvantages />
   </div>
 </template>

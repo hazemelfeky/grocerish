@@ -1,0 +1,39 @@
+.advantages {
+  &.wrapper {
+    margin: 1.5rem auto;
+  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  .advanages__single {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+
+    svg {
+      font-size: 2.5rem;
+      width: 2.5rem;
+      color: $base-color;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      max-width: 85%;
+    }
+  }
+
+  @include devices(md) {
+    & {
+      grid-template-columns: 1fr;
+      .advanages__single {
+        justify-content: start;
+        div {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

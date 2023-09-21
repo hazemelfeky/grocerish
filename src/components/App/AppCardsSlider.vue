@@ -36,7 +36,7 @@ const options = {
     nextEl: `.${props.name}-swiper-next`,
   },
   autoplay: {
-    delay: 1500,
+    delay: 3000,
   },
   effect: "fade",
   slidesPerView: props.slides,

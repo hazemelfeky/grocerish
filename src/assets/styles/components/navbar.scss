@@ -76,7 +76,7 @@
   @include devices(md) {
     & {
       position: absolute;
-      transform: translateX(300%);
+      transform: translateX(350%);
       transition: all 0.2s ease-in-out;
       z-index: 100;
     }

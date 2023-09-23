@@ -7,7 +7,7 @@ const cartLength = computed(() => store.cart.length);
   <nav class="controls">
     <div class="wrapper">
       <div class="controls__user">
-        <div class="controls__user__cart">
+        <router-link to="/cart" class="controls__user__cart">
           <div class="controls__user__cart__icon">
             <Icon icon="mdi:cart-outline" />
             <span v-if="cartLength" class="controls__user__cart__icon__counter">
@@ -18,7 +18,7 @@ const cartLength = computed(() => store.cart.length);
             <p>Cart</p>
             <p>21$</p>
           </div>
-        </div>
+        </router-link>
         <AppUser class="controls__user__profile" />
       </div>
       <router-link to="/">

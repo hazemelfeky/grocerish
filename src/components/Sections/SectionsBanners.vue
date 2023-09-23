@@ -6,7 +6,7 @@
       <p class="banners__delivery__comment">
         Don’t mess a need. Free delivery!
       </p>
-      <a class="banners__delivery__shopnow shopnow" href="">Shop Here</a>
+      <router-link class="banners__delivery__shopnow shopnow" to="/products">Shop Here</router-link>
       <img class="banners__delivery__image" alt="delivery" src="/src/assets/Offer1.png" />
     </div>
     <div class="banners__deals">
@@ -15,7 +15,7 @@
       <p class="banners__deals__comment">
         Save up to 60% off on your first order.
       </p>
-      <a class="banners__deals__shopnow shopnow" href="">Shop Here</a>
+      <a class="banners__deals__shopnow shopnow" href="/products">Shop Here</a>
       <img class="banners__deals__image" alt="deals" src="/src/assets/Offer2.png" />
     </div>
   </div>

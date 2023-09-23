@@ -45,7 +45,7 @@ const handleAddToCart = (e, item) => {
         <h3 class="offers__slide__name">{{ product.name }}</h3>
         <div class="offers__slide__price">
           <h3>{{ product.price.toFixed(2) }} EGP</h3>
-          <p>{{ (product.price * 1.25).toFixed(2) }} EGP</p>
+          <p>{{ product.oldPrice.toFixed(2) }} EGP</p>
         </div>
         <button
           class="offers__slide__add"

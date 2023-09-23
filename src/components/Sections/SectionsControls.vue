@@ -1,7 +1,13 @@
 <script setup>
 import useVegetablesStore from "@/plugins/vegetablesStore";
 const store = useVegetablesStore();
-const cartLength = computed(() => store.cart.length);
+const cartLength = computed(() =>
+  store.cart.reduce((acc, el) => el.quantity + acc, 0)
+);
+
+const cartPrice = computed(() =>
+  store.cart.reduce((acc, el) => (el.price * el.quantity) + acc, 0)
+);
 </script>
 <template>
   <nav class="controls">
@@ -16,7 +22,7 @@ const cartLength = computed(() => store.cart.length);
           </div>
           <div class="controls__user__cart__price">
             <p>Cart</p>
-            <p>21$</p>
+            <p>{{ cartPrice }} £</p>
           </div>
         </router-link>
         <AppUser class="controls__user__profile" />

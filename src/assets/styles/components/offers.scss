@@ -44,10 +44,14 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      transition: all 0.1s ease-in-out;
 
       svg {
         font-size: 24px;
         color: $base-color;
+      }
+      &:hover {
+        background-color: #ccc;
       }
     }
   }

@@ -6,6 +6,7 @@ export default defineStore("vegetables", {
     allProducts: [],
     offersProducts: [],
     singleProduct: {},
+    cart: [],
   }),
   getters: {
     categoriesProducts() {
@@ -49,7 +50,7 @@ export default defineStore("vegetables", {
       });
       return itemsList;
     },
-    
+
     async fetchProduct(id) {
       try {
         const res = await axios.get(`fruit/${id}`);
@@ -57,6 +58,11 @@ export default defineStore("vegetables", {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
+    },
+
+    addToCart(item) {
+      const isAlreadyInCart = this.cart.some((el) => el.id == item.id);
+      if (!isAlreadyInCart) this.cart = [...this.cart, item];
     },
   },
 });

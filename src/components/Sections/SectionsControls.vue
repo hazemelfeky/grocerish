@@ -1,7 +1,7 @@
 <script setup>
-import AppUser from '../App/AppUser.vue';
-
-// import { Icon } from '@iconify/vue';
+import useVegetablesStore from "@/plugins/vegetablesStore";
+const store = useVegetablesStore();
+const cartLength = computed(() => store.cart.length);
 </script>
 <template>
   <nav class="controls">
@@ -10,7 +10,9 @@ import AppUser from '../App/AppUser.vue';
         <div class="controls__user__cart">
           <div class="controls__user__cart__icon">
             <Icon icon="mdi:cart-outline" />
-            <span class="controls__user__cart__icon__counter">5</span>
+            <span v-if="cartLength" class="controls__user__cart__icon__counter">
+              {{ cartLength }}
+            </span>
           </div>
           <div class="controls__user__cart__price">
             <p>Cart</p>

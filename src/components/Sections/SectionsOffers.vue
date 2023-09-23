@@ -6,6 +6,13 @@ import useVegetablesStore from "@/plugins/vegetablesStore";
 const NUMBER_OF_SLIDES = 8;
 const store = useVegetablesStore();
 const products = computed(() => store.getRandomProducts(NUMBER_OF_SLIDES));
+
+const handleAddToCart = (e, item) => {
+  e.preventDefault();
+  const itemToObject = JSON.parse(JSON.stringify(item));
+  console.log(itemToObject);
+  store.addToCart(item);
+};
 </script>
 <template>
   <AppCardsSlider
@@ -35,7 +42,10 @@ const products = computed(() => store.getRandomProducts(NUMBER_OF_SLIDES));
           <h3>{{ product.price.toFixed(2) }} EGP</h3>
           <p>{{ (product.price * 1.25).toFixed(2) }} EGP</p>
         </div>
-        <button class="offers__slide__add">
+        <button
+          class="offers__slide__add"
+          @click="handleAddToCart($event, product)"
+        >
           <Icon icon="bx:cart-add" />
           Add To Cart
         </button>

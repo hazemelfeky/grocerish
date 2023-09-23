@@ -72,3 +72,9 @@ a {
     }
   }
 }
+
+.vue-notification-template.vue-notification.notification {
+  margin: 0.5rem 0.5rem 0 0;
+  background-color: color-mix(in srgb, $base-color 80%, black);
+  border-left-color: color-mix(in srgb, $base-color 50%, black);;
+}

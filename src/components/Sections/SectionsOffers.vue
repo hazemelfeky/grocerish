@@ -2,16 +2,21 @@
 import AppCardsSlider from "@/components/App/AppCardsSlider.vue";
 import { SwiperSlide } from "swiper/vue";
 import useVegetablesStore from "@/plugins/vegetablesStore";
+import { useNotification } from "@kyvg/vue3-notification";
 
 const NUMBER_OF_SLIDES = 8;
 const store = useVegetablesStore();
 const products = computed(() => store.getRandomProducts(NUMBER_OF_SLIDES));
 
+const { notify } = useNotification();
+
 const handleAddToCart = (e, item) => {
   e.preventDefault();
-  const itemToObject = JSON.parse(JSON.stringify(item));
-  console.log(itemToObject);
   store.addToCart(item);
+  notify({
+    title: "Add item",
+    text: `Add new item ${item.name}`,
+  });
 };
 </script>
 <template>

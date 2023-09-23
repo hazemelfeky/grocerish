@@ -11,6 +11,7 @@ onMounted(async () => {
 
 <template>
   <layout>
+    <notifications classes="vue-notification notification"/>
     <router-view />
   </layout>
 </template>

@@ -1,0 +1,64 @@
+footer.footer {
+  & > div {
+    border-top: 1px solid $base-color;
+  }
+  .footer__top {
+    padding: 0.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    .footer__top__col {
+      .logo, h4, p {
+        margin-bottom: 0.5rem;
+      }
+      .logo {
+        font-size: 1.3rem;
+      }
+      h4 {
+        font-size: 1.1rem;
+      }
+      p {
+        display: flex;
+        align-items: center;
+          gap: 0.25rem;
+          span {
+          color: $base-color;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          svg {
+            color: $base-color;
+          }
+        }
+      }
+    }
+  }
+
+  .footer__bottom {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    svg {
+      color: $base-color;
+      font-size: 2rem;
+    }
+  }
+
+  @include devices(md) {
+    .footer__top {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .footer__bottom {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  @include devices(sm) {
+    .footer__top {
+      grid-template-columns: 1fr;
+    }
+  }
+}

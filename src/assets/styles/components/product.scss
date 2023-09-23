@@ -1,0 +1,9 @@
+.product {
+  color: red;
+  &__img {
+    margin: 1rem 0;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+}

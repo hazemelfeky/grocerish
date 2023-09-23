@@ -1,5 +1,7 @@
 <template>
-  <div class="wrapper">
+  <div class="product wrapper">
+    <img class="product__img" :src="`${IMAGES_BASE_URL}${product.family}.png`" />
+    <h4>{{product.name}}</h4>
     <p>{{product}}</p>
   </div>
 </template>
@@ -16,5 +18,3 @@ onMounted(async () => {
   await store.fetchProduct(route.params.id);
 });
 </script>
-
-<style lang="scss" scoped></style>

@@ -46,7 +46,11 @@ export default defineStore("vegetables", {
       const PRICES = [12, 15, 7, 9, 17, 8, 14];
       itemsList = itemsList.map((product) => {
         const randomIndex = Math.floor(Math.random() * PRICES.length);
-        return { ...product, price: PRICES[randomIndex], oldPrice: PRICES[randomIndex] * 1.25 };
+        return {
+          ...product,
+          price: PRICES[randomIndex],
+          oldPrice: PRICES[randomIndex] * 1.25,
+        };
       });
       return itemsList;
     },
@@ -67,6 +71,10 @@ export default defineStore("vegetables", {
       } else {
         this.cart.find((el) => el.id == item.id).quantity++;
       }
+    },
+
+    deleteFromCart(item) {
+      this.cart = this.cart.filter((el) => el.id != item.id);
     },
   },
 });

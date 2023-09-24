@@ -3,13 +3,18 @@ import AppCardsSlider from "@/components/App/AppCardsSlider.vue";
 import { SwiperSlide } from "swiper/vue";
 import useVegetablesStore from "@/plugins/vegetablesStore";
 import { useNotification } from "@kyvg/vue3-notification";
+import VueSkeletonLoader from "skeleton-loader-vue";
 
 const NUMBER_OF_SLIDES = 8;
 const store = useVegetablesStore();
 const products = computed(() => store.getRandomProducts(NUMBER_OF_SLIDES));
 
-const { notify } = useNotification();
+const skeletonIds = ref([]);
+function showSkeleton(id) {
+  this.skeletonIds.push(id);
+}
 
+const { notify } = useNotification();
 const handleAddToCart = (e, item) => {
   e.preventDefault();
   store.addToCart(item);
@@ -34,9 +39,12 @@ const handleAddToCart = (e, item) => {
       <router-link :to="`/product/${product.id}`">
         <img
           class="offers__slide__img"
-          :src="`${IMAGES_BASE_URL}${product.family}.png`"
+          :src="`${IMAGES_BASE_URL}${product.name}.png`"
           alt="img"
+          @error="showSkeleton(product.id)"
+          v-if="!skeletonIds.includes(product.id)"
         />
+        <div v-else class="skeleton-image"></div>
         <div class="offers__slide__type">
           <p>{{ product.family }}</p>
           <p>{{ product.genus }}</p>

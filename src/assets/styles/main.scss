@@ -78,3 +78,9 @@ a {
   background-color: color-mix(in srgb, $base-color 80%, black);
   border-left-color: color-mix(in srgb, $base-color 50%, black);;
 }
+
+.skeleton-image {
+  height: 5rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+}

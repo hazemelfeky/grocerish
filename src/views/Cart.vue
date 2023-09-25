@@ -1,16 +1,21 @@
 <script setup>
 import useVegetablesStore from "@/plugins/vegetablesStore";
+import { useNotification } from "@kyvg/vue3-notification";
 
 const store = useVegetablesStore();
-const isModelVisable = ref(false);
 const cart = computed(() => store.cart);
 
 const delelteItem = (item) => {
   store.deleteFromCart(item);
 };
 
+const { notify } = useNotification();
+
 const handleCheckout = () => {
-  isModelVisable.value = true;
+  notify({
+    title: "Not available now",
+    text: "This feature will be availbe soon",
+  });
 };
 </script>
 <template>
@@ -36,7 +41,7 @@ const handleCheckout = () => {
           <span>{{ product.oldPrice }} £</span>
           <div>{{ product.price }} £</div>
         </div>
-        <div class="cart__products__product__quantity">
+        <div class="cart__products__product__controls">
           <AppQuantityCounter v-model="product.quantity" />
           <button class="delete-btn" @click="delelteItem(product)">
             delete
@@ -61,9 +66,6 @@ const handleCheckout = () => {
         Checkout
       </button>
     </div>
-    <AppModal v-model="isModelVisable">
-      <template #header> This feature will be availble soon </template>
-    </AppModal>
   </div>
 </template>
 

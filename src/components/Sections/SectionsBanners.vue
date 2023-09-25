@@ -15,7 +15,7 @@
       <p class="banners__deals__comment">
         Save up to 60% off on your first order.
       </p>
-      <a class="banners__deals__shopnow shopnow" href="/products">Shop Here</a>
+      <router-link class="banners__deals__shopnow shopnow" to="/products">Shop Here</router-link>
       <img class="banners__deals__image" alt="deals" src="/src/assets/Offer2.png" />
     </div>
   </div>

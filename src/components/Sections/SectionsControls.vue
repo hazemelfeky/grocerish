@@ -1,7 +1,8 @@
 <script setup>
 import useVegetablesStore from "@/plugins/vegetablesStore";
+import { useNotification } from "@kyvg/vue3-notification";
+
 const store = useVegetablesStore();
-const isModelVisable = ref(false);
 const cartLength = computed(() =>
   store.cart.reduce((acc, el) => el.quantity + acc, 0)
 );
@@ -10,8 +11,12 @@ const cartPrice = computed(() =>
   store.cart.reduce((acc, el) => el.price * el.quantity + acc, 0)
 );
 
+const { notify } = useNotification();
 const handleFeatures = () => {
-  isModelVisable.value = true;
+  notify({
+    title: "Not available now",
+    text: "This feature will be availbe soon",
+  });
 };
 </script>
 <template>
@@ -50,9 +55,6 @@ const handleFeatures = () => {
       </form>
     </div>
   </nav>
-  <AppModal v-model="isModelVisable">
-    <template #header> This feature will be availble soon </template>
-  </AppModal>
 </template>
 
 <style lang="scss" scoped></style>

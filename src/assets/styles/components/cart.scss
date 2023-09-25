@@ -28,12 +28,22 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
       }
+      &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        h4 {
+          width: fit-content;
+        }
+      }
       &__price {
         font-weight: bold;
         color: $base-color;
         display: flex;
         justify-content: space-between;
-        margin-right: 3rem;
+        gap: 0.5rem;
+        align-items: center;
+        margin-right: 4rem;
         span {
           text-decoration: line-through;
           color: #aaa;
@@ -42,10 +52,31 @@
         div {
           font-size: 1.1rem;
         }
-        @include devices(md) {
-          & {
-            flex-direction: column;
-          }
+        // @include devices(md) {
+        //   & {
+        //     flex-direction: column;
+        //   }
+        // }
+      }
+      &__controls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      @include devices(md) {
+        & {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        &__image {
+          width: 100%;
+        }
+        &__details {
+          align-items: center;
+        }
+        &__price {
+          margin-right: 0;
         }
       }
     }
@@ -57,7 +88,6 @@
     padding: 1rem;
     height: fit-content;
     h3 {
-
       // border-bottom: 2px solid $base-text;
     }
     &__product {
@@ -88,5 +118,13 @@
     & {
       grid-template-columns: 1fr;
     }
+  }
+
+  .delete-btn {
+    padding: 0.25rem 0.75rem;
+    color: white;
+    background-color: #e54444;
+    border: 1px solid #fff;
+    border-radius: 0.5rem;
   }
 }

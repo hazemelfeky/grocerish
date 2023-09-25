@@ -1,11 +1,15 @@
 <script setup>
+import { useNotification } from "@kyvg/vue3-notification";
 defineProps({
   navIsVisable: { type: Boolean },
 });
 
-const isModelVisable = ref(false);
+const { notify } = useNotification();
 const handleFeatures = () => {
-  isModelVisable.value = true;
+  notify({
+    title: "Not available now",
+    text: "This feature will be availbe soon",
+  });
 };
 </script>
 
@@ -24,10 +28,14 @@ const handleFeatures = () => {
           <router-link to="/"><Icon icon="ic:outline-home" />Home</router-link>
         </li>
         <li>
-          <router-link to="/"><Icon icon="carbon:percentage" />Featured</router-link>
+          <router-link to="/"
+            ><Icon icon="carbon:percentage" />Featured</router-link
+          >
         </li>
         <li>
-          <router-link to="/"><Icon icon="bxs:hot" />Daily Best Deals</router-link>
+          <router-link to="/"
+            ><Icon icon="bxs:hot" />Daily Best Deals</router-link
+          >
         </li>
       </ul>
       <div class="navbar__call">
@@ -39,9 +47,6 @@ const handleFeatures = () => {
       </div>
     </div>
   </div>
-  <AppModal v-model="isModelVisable">
-    <template #header> This feature will be availble soon </template>
-  </AppModal>
 </template>
 
 <style lang="scss" scoped></style>

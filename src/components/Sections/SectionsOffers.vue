@@ -36,14 +36,12 @@ const handleAddToCart = (e, item) => {
       class="offers__slide"
     >
       <router-link :to="`/products/${product.id}`">
-        <img
-          class="offers__slide__img"
-          :src="`${IMAGES_BASE_URL}${product.name}.png`"
-          alt="img"
-          @error="showSkeleton(product.id)"
-          v-if="!skeletonIds.includes(product.id)"
-        />
-        <div v-else class="skeleton-image"></div>
+        <div
+          class="cart__products__product__image"
+          :style="{
+            backgroundImage: `url(${IMAGES_BASE_URL}${product.name}.png)`,
+          }"
+        ></div>
         <div class="offers__slide__type">
           <p>{{ product.family }}</p>
           <p>{{ product.genus }}</p>

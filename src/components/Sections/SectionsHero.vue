@@ -39,7 +39,7 @@ const options = {
         }"
       >
         <div class="wrapper">
-          <h1 class="hero__title" :data-swiper-parallax="-200">Don’t 2.</h1>
+          <h1 class="hero__title" :data-swiper-parallax="-200">We are the best online grocery.</h1>
           <p class="hero__comment">Save up to 60% off on your first order</p>
         </div>
       </swiper-slide>

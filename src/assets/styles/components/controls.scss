@@ -19,6 +19,7 @@
     font-size: 1.25rem;
     border-radius: 50%;
     cursor: pointer;
+    margin-left: 1.5rem;
     @include devices(md) {
       & {
         display: grid;

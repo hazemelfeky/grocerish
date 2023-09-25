@@ -1,6 +1,6 @@
 <template>
   <div class="products wrapper">
-    <h1>All products</h1>
+    <h2>COMING SOON</h2>
   </div>
 </template>
 

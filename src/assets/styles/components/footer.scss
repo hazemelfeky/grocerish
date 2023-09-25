@@ -45,7 +45,7 @@ footer.footer {
     }
   }
 
-  @include devices(md) {
+  @include devices(lg) {
     .footer__top {
       grid-template-columns: repeat(2, 1fr);
     }

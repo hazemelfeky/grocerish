@@ -35,7 +35,7 @@ const handleAddToCart = (e, item) => {
       :key="product.id"
       class="offers__slide"
     >
-      <router-link :to="`/product/${product.id}`">
+      <router-link :to="`/products/${product.id}`">
         <img
           class="offers__slide__img"
           :src="`${IMAGES_BASE_URL}${product.name}.png`"

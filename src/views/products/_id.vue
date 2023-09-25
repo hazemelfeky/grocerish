@@ -1,5 +1,6 @@
 <template>
   <div class="product wrapper">
+    <h2>UNDER CONSTRUCTING ⚒</h2>
     <img class="product__img" :src="`${IMAGES_BASE_URL}${product.family}.png`" />
     <h4>{{product.name}}</h4>
     <p>{{product}}</p>

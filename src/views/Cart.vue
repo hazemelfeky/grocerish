@@ -2,14 +2,20 @@
 import useVegetablesStore from "@/plugins/vegetablesStore";
 
 const store = useVegetablesStore();
+const isModelVisable = ref(false);
 const cart = computed(() => store.cart);
 
 const delelteItem = (item) => {
   store.deleteFromCart(item);
 };
+
+const handleCheckout = () => {
+  isModelVisable.value = true;
+};
 </script>
 <template>
-  <div class="cart wrapper">
+  <h2 v-if="!cart.length">NO PRODUCTS YET!</h2>
+  <div v-else class="cart wrapper">
     <div class="cart__products">
       <div
         class="cart__products__product"
@@ -51,7 +57,13 @@ const delelteItem = (item) => {
       <p class="cart__totals__total">
         {{ cart.reduce((acc, item) => item.quantity * item.price + acc, 0) }} £
       </p>
+      <button class="cart__totals__checkout" @click="handleCheckout">
+        Checkout
+      </button>
     </div>
+    <AppModal v-model="isModelVisable">
+      <template #header> This feature will be availble soon </template>
+    </AppModal>
   </div>
 </template>
 

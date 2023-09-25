@@ -3,7 +3,6 @@ import AppCardsSlider from "@/components/App/AppCardsSlider.vue";
 import { SwiperSlide } from "swiper/vue";
 import useVegetablesStore from "@/plugins/vegetablesStore";
 import { useNotification } from "@kyvg/vue3-notification";
-import VueSkeletonLoader from "skeleton-loader-vue";
 
 const NUMBER_OF_SLIDES = 8;
 const store = useVegetablesStore();

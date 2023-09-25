@@ -1,13 +1,18 @@
 <script setup>
 import useVegetablesStore from "@/plugins/vegetablesStore";
 const store = useVegetablesStore();
+const isModelVisable = ref(false);
 const cartLength = computed(() =>
   store.cart.reduce((acc, el) => el.quantity + acc, 0)
 );
 
 const cartPrice = computed(() =>
-  store.cart.reduce((acc, el) => (el.price * el.quantity) + acc, 0)
+  store.cart.reduce((acc, el) => el.price * el.quantity + acc, 0)
 );
+
+const handleFeatures = () => {
+  isModelVisable.value = true;
+};
 </script>
 <template>
   <nav class="controls">
@@ -37,6 +42,7 @@ const cartPrice = computed(() =>
         <input
           class="controls__search__input"
           placeholder="What are you looking for ?"
+          @input="handleFeatures"
         />
         <button class="controls__search__btn">
           <Icon icon="ic:outline-search" />
@@ -44,6 +50,9 @@ const cartPrice = computed(() =>
       </form>
     </div>
   </nav>
+  <AppModal v-model="isModelVisable">
+    <template #header> This feature will be availble soon </template>
+  </AppModal>
 </template>
 
 <style lang="scss" scoped></style>

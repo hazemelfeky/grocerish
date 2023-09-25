@@ -2,6 +2,11 @@
 defineProps({
   navIsVisable: { type: Boolean },
 });
+
+const isModelVisable = ref(false);
+const handleFeatures = () => {
+  isModelVisable.value = true;
+};
 </script>
 
 <template>
@@ -10,7 +15,7 @@ defineProps({
       <div class="navbar__user">
         <AppUser />
       </div>
-      <a class="navbar_browse--btn">
+      <a class="navbar_browse--btn" @click="handleFeatures">
         <Icon icon="fluent:grid-28-regular" />
         Browse All Categories
       </a>
@@ -19,7 +24,7 @@ defineProps({
           <router-link to="/"><Icon icon="ic:outline-home" />Home</router-link>
         </li>
         <li>
-          <router-link to="/about"><Icon icon="carbon:percentage" />Featured</router-link>
+          <router-link to="/"><Icon icon="carbon:percentage" />Featured</router-link>
         </li>
         <li>
           <router-link to="/"><Icon icon="bxs:hot" />Daily Best Deals</router-link>
@@ -34,6 +39,9 @@ defineProps({
       </div>
     </div>
   </div>
+  <AppModal v-model="isModelVisable">
+    <template #header> This feature will be availble soon </template>
+  </AppModal>
 </template>
 
 <style lang="scss" scoped></style>

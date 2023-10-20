@@ -8,11 +8,6 @@ const NUMBER_OF_SLIDES = 8;
 const store = useVegetablesStore();
 const products = computed(() => store.getRandomProducts(NUMBER_OF_SLIDES));
 
-const skeletonIds = ref([]);
-function showSkeleton(id) {
-  this.skeletonIds.push(id);
-}
-
 const { notify } = useNotification();
 const handleAddToCart = (e, item) => {
   e.preventDefault();

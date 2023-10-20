@@ -9,6 +9,9 @@ export default defineConfig({
   server: {
     port: 4000,
   },
+  test: {
+    global: true,
+  },
   plugins: [
     vue(),
     AutoImport({

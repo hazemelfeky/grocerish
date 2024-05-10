@@ -4,19 +4,35 @@ import { SwiperSlide } from "swiper/vue";
 import useVegetablesStore from "../../plugins/vegetablesStore";
 
 const store = useVegetablesStore();
-const categories = computed(() => store.categoriesProducts);
+const loading = ref(false);
+
+onMounted(async () => {
+  loading.value = true;
+  await store.fetchCategories();
+  loading.value = false;
+});
 </script>
 <template>
   <div class="categories">
-    <AppCardsSlider title="Explore Categories" slides="6" name="categories">
-      <swiper-slide v-for="(value, key) in categories" :key="key" class="categories__slide">
+    <div v-if="loading">loading</div>
+    <AppCardsSlider
+      v-else
+      title="Explore Categories"
+      slides="6"
+      name="categories"
+    >
+      <swiper-slide
+        v-for="category in store.allCategories"
+        :key="category.id"
+        class="categories__slide"
+      >
         <img
           class="categories__slide__img"
-          :src="`${IMAGES_BASE_URL}${key}.png`"
+          :src="category.attributes.image.data?.attributes.url"
           alt="img"
         />
-        <h4>{{ key }}</h4>
-        <p>{{ value.length }} items</p>
+        <h4>{{ category.attributes.name }}</h4>
+        <p>{{ category.attributes.name }} items</p>
       </swiper-slide>
     </AppCardsSlider>
   </div>

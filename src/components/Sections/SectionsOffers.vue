@@ -4,9 +4,14 @@ import { SwiperSlide } from "swiper/vue";
 import useVegetablesStore from "@/plugins/vegetablesStore";
 import { useNotification } from "@kyvg/vue3-notification";
 
-const NUMBER_OF_SLIDES = 8;
 const store = useVegetablesStore();
-const products = computed(() => store.getRandomProducts(NUMBER_OF_SLIDES));
+const loading = ref(false);
+
+onMounted(async () => {
+  loading.value = true;
+  await store.fetchProducts();
+  loading.value = false;
+});
 
 const { notify } = useNotification();
 const handleAddToCart = (e, item) => {
@@ -19,33 +24,33 @@ const handleAddToCart = (e, item) => {
 };
 </script>
 <template>
+  <div v-if="loading">loading</div>
   <AppCardsSlider
+    v-else
     title="Featured Products"
     slides="5"
     nmae="offers"
     class="offers"
   >
     <swiper-slide
-      v-for="product in products"
+      v-for="product in store.allProducts"
       :key="product.id"
       class="offers__slide"
     >
       <router-link :to="`/products/${product.id}`">
-        <div
-          class="cart__products__product__image"
-          :style="{
-            backgroundImage: `url(${IMAGES_BASE_URL}${product.name}.png)`,
-          }"
-        ></div>
+        <img
+          class="offers__slide__img"
+          :src="product.image.data?.attributes.url"
+          alt="img"
+        />
         <div class="offers__slide__type">
-          <p>{{ product.family }}</p>
-          <p>{{ product.genus }}</p>
+          <p>{{ product.category.data.attributes.name }}</p>
         </div>
 
         <h3 class="offers__slide__name">{{ product.name }}</h3>
         <div class="offers__slide__price">
-          <h3>{{ product.price.toFixed(2) }} EGP</h3>
-          <p>{{ product.oldPrice.toFixed(2) }} EGP</p>
+          <h3>{{ product.price }} EGP</h3>
+          <p>{{ (product.price + product.price / 2).toFixed(2) }} EGP</p>
         </div>
         <button
           class="offers__slide__add"

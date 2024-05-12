@@ -2,7 +2,7 @@
   <footer class="footer wrapper">
     <div class="footer__top">
       <div class="footer__top__col">
-        <h3 class="logo">Grogeyish</h3>
+        <h3 class="logo">Groceyish</h3>
         <p>
           <span><Icon icon="mdi:location" /> Address: </span>
           1762 School House Road

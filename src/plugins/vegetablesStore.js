@@ -25,7 +25,10 @@ export default defineStore("vegetables", {
             },
           }
         );
-        this.allProducts = res.data.data.map((el) => el.attributes);
+        this.allProducts = res.data.data.map((el) => ({
+          ...el.attributes,
+          id: el.id,
+        }));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -45,7 +48,7 @@ export default defineStore("vegetables", {
 
     async fetchProduct(id) {
       try {
-        const res = await axios.get(`products/${id}`);
+        const res = await axios.get(`products/${id}?populate=image`);
         this.singleProduct = res.data;
       } catch (error) {
         console.error("Error fetching data:", error);

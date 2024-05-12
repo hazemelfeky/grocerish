@@ -35,18 +35,17 @@
     border: 1px solid $base-color;
     border-radius: 3px;
     display: flex;
+    max-width: 50%;
 
     .controls__search__input {
       border: none;
       padding: 0.75rem 1rem;
-      max-width: 15rem;
       outline: none;
       background: unset;
-
+      width: 20rem;
       @include devices(md) {
         & {
           width: 100%;
-          max-width: none;
         }
       }
     }
@@ -62,6 +61,7 @@
     @include devices(md) {
       & {
         width: 100%;
+        max-width: 100%;
       }
     }
   }

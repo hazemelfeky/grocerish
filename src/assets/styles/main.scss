@@ -118,3 +118,10 @@ a {
     }
   }
 }
+
+.cards-container {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+}

@@ -38,7 +38,7 @@ onMounted(async () => {
     >
       <swiper-slide v-for="category in store.allCategories" :key="category.id">
         <router-link
-          :to="`/products?category=${category.id}`"
+          :to="`/products?category_id=${category.id}`"
           class="categories__slide"
         >
           <img

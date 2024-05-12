@@ -10,10 +10,20 @@ export default defineStore("vegetables", {
     cart: [],
   }),
   actions: {
-    async fetchProducts() {
+    async fetchProducts(params = {}) {
+      console.log(params);
       try {
+        this.allProducts = [];
         const res = await axios.get(
-          "products?populate=image&populate=category&pagination[pageSize]=100"
+          "products?populate=image&populate=category",
+          {
+            params: {
+              pagination: { pageSize: 100 },
+              filters: {
+                category: { id: { $eq: params.category_id } },
+              },
+            },
+          }
         );
         this.allProducts = res.data.data.map((el) => el.attributes);
       } catch (error) {

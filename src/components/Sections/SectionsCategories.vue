@@ -36,18 +36,19 @@ onMounted(async () => {
       slides="6"
       name="categories"
     >
-      <swiper-slide
-        v-for="category in store.allCategories"
-        :key="category.id"
-        class="categories__slide"
-      >
-        <img
-          class="categories__slide__img"
-          :src="category.attributes.image.data?.attributes.url"
-          alt="img"
-        />
-        <h4>{{ category.attributes.name }}</h4>
-        <p>{{ category.attributes.name }} items</p>
+      <swiper-slide v-for="category in store.allCategories" :key="category.id">
+        <router-link
+          :to="`/products?category=${category.id}`"
+          class="categories__slide"
+        >
+          <img
+            class="categories__slide__img"
+            :src="category.attributes.image.data?.attributes.url"
+            alt="img"
+          />
+          <h4>{{ category.attributes.name }}</h4>
+          <p>{{ category.attributes.name }} items</p>
+        </router-link>
       </swiper-slide>
     </AppCardsSlider>
   </div>

@@ -22,8 +22,11 @@ export default defineStore("vegetables", {
     },
 
     async fetchCategories() {
+      if (this.allCategories.length) return;
       try {
-        const res = await axios.get("categories?populate=image&pagination[pageSize]=100");
+        const res = await axios.get(
+          "categories?populate=image&pagination[pageSize]=100"
+        );
         this.allCategories = res.data.data;
       } catch (error) {
         console.error("Error fetching data:", error);

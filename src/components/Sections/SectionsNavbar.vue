@@ -1,16 +1,7 @@
 <script setup>
-import { useNotification } from "@kyvg/vue3-notification";
 defineProps({
   navIsVisable: { type: Boolean },
 });
-
-const { notify } = useNotification();
-const handleFeatures = () => {
-  notify({
-    title: "Not available now",
-    text: "This feature will be availbe soon",
-  });
-};
 </script>
 
 <template>
@@ -19,10 +10,10 @@ const handleFeatures = () => {
       <div class="navbar__user">
         <AppUser />
       </div>
-      <a class="navbar_browse--btn" @click="handleFeatures">
+      <router-link to="/categories" class="navbar_browse--btn">
         <Icon icon="fluent:grid-28-regular" />
         Browse All Categories
-      </a>
+      </router-link>
       <ul class="navbar__pages">
         <li>
           <router-link to="/"><Icon icon="ic:outline-home" />Home</router-link>

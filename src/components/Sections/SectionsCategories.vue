@@ -14,7 +14,22 @@ onMounted(async () => {
 </script>
 <template>
   <div class="categories">
-    <div v-if="loading">loading</div>
+    <AppCardsSlider
+      v-if="loading"
+      title="Explore Categories"
+      slides="6"
+      name="categories"
+    >
+      <swiper-slide
+        v-for="slide in 4"
+        :key="slide"
+        class="categories__slide skeleton"
+      >
+        <div class="categories__slide__img img"></div>
+        <h4></h4>
+        <p></p>
+      </swiper-slide>
+    </AppCardsSlider>
     <AppCardsSlider
       v-else
       title="Explore Categories"

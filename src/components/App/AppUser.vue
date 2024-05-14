@@ -27,3 +27,12 @@ const handleLogout = () => {
     <router-link v-else to="/login">Login</router-link>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@import "../assets/styles/variables.scss";
+.header__user {
+  a {
+    color: $base-color;
+  }
+}
+</style>

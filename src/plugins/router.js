@@ -4,20 +4,20 @@ const routes = [
   { path: "/", component: () => import("@/views/Home.vue") },
   { path: "/about", component: () => import("@/views/About.vue") },
   { path: "/categories", component: () => import("@/views/Categories.vue") },
-  { path: "/products", component: () => import("../views/Products/index.vue") },
+  { path: "/products", component: () => import("@/views/Products/index.vue") },
   {
     path: "/products/:id",
-    component: () => import("../views/Products/_id.vue"),
+    component: () => import("@/views/Products/_id.vue"),
   },
-  { path: "/cart", component: () => import("../views/Cart.vue") },
+  { path: "/cart", component: () => import("@/views/Cart.vue") },
   {
     path: "/login",
-    component: () => import("../views/Login.vue"),
+    component: () => import("@/views/Login.vue"),
     meta: { requiresUnAuth: true },
   },
   {
     path: "/signup",
-    component: () => import("../views/Signup.vue"),
+    component: () => import("@/views/Signup.vue"),
     meta: { requiresUnAuth: true },
   },
 ];

@@ -1,9 +1,9 @@
+.offers__slide, .slide {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #eee;
+}
 .offers {
-  .offers__slide {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #eee;
-  }
   .offers__slide,
   .offers__slide a {
     display: flex;

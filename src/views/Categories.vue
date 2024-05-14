@@ -15,10 +15,8 @@ onMounted(async () => {
     <h3>All categories ({{ store.allCategories.length }})</h3>
     <div class="cards-container">
       <template v-if="loading">
-        <div v-for="slide in 4" :key="slide" class="categories__slide skeleton">
-          <div class="categories__slide__img img"></div>
-          <h4></h4>
-          <p></p>
+        <div v-for="slide in 4" :key="slide">
+          <CardSkeleton />
         </div>
       </template>
       <template v-else>

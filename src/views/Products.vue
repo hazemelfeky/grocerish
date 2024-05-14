@@ -54,41 +54,14 @@ watch(
     </select>
     <div class="cards-container offers">
       <template v-if="loading">
-        <div v-for="slide in 4" :key="slide" class="offers__slide skeleton">
-          <div class="categories__slide__img img"></div>
-          <h4></h4>
-          <p></p>
-        </div>
+        <CardSkeleton v-for="slide in 4" :key="slide" :details="true" />
       </template>
       <template v-else>
-        <router-link
+        <CardProduct
           v-for="product in store.allProducts"
           :key="product.id"
-          :to="`/products/${product.id}`"
-          class="offers__slide"
-        >
-          <img
-            class="offers__slide__img"
-            :src="product.image.data?.attributes.url"
-            alt="img"
-          />
-          <div class="offers__slide__type">
-            <p>{{ product.category.data.attributes.name }}</p>
-          </div>
-
-          <h3 class="offers__slide__name">{{ product.name }}</h3>
-          <div class="offers__slide__price">
-            <h3>{{ product.price }} EGP</h3>
-            <p>{{ (product.price + product.price / 2).toFixed(2) }} EGP</p>
-          </div>
-          <button
-            class="offers__slide__add"
-            @click="handleAddToCart($event, product)"
-          >
-            <Icon icon="bx:cart-add" />
-            Add To Cart
-          </button>
-        </router-link>
+          :product="product"
+        />
       </template>
     </div>
   </div>
@@ -100,7 +73,7 @@ watch(
 }
 
 .category-select {
-  appearance:none;
+  appearance: none;
   border: 1px solid #237d64;
   border-radius: 3px;
   padding: 0.5rem;

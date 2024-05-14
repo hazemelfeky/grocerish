@@ -20,14 +20,8 @@ onMounted(async () => {
       slides="6"
       name="categories"
     >
-      <swiper-slide
-        v-for="slide in 4"
-        :key="slide"
-        class="categories__slide skeleton"
-      >
-        <div class="categories__slide__img img"></div>
-        <h4></h4>
-        <p></p>
+      <swiper-slide v-for="slide in 4" :key="slide">
+        <CardSkeleton />
       </swiper-slide>
     </AppCardsSlider>
     <AppCardsSlider

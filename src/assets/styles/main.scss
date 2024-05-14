@@ -80,6 +80,9 @@ a {
 }
 
 .skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   .img,
   h4,
   p {

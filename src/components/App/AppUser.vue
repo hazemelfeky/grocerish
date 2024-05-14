@@ -29,7 +29,7 @@ const handleLogout = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/styles/variables.scss";
+@import "@/assets/styles/variables.scss";
 .header__user {
   a {
     color: $base-color;

@@ -42,7 +42,7 @@ const handleSubmit = async () => {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/styles/variables.scss";
+@import "@/assets/styles/variables.scss";
 .signup-page {
   margin-top: 1rem;
   display: flex;

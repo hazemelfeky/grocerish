@@ -47,7 +47,7 @@ const handleSubmit = async () => {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/styles/variables.scss";
+@import "@/assets/styles/variables.scss";
 .login-page {
   margin-top: 1rem;
   display: flex;

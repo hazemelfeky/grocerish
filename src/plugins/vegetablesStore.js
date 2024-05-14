@@ -8,10 +8,65 @@ export default defineStore("vegetables", {
     offersProducts: [],
     singleProduct: {},
     cart: [],
+    auth: {
+      token: localStorage.getItem("token"),
+      userInfo: {
+        username: localStorage.getItem("username"),
+      },
+    },
   }),
   actions: {
+    register(user) {
+      return new Promise((resolve, reject) => {
+        axios({
+          url: "auth/local/register",
+          data: user,
+          method: "POST",
+        })
+          .then((resp) => {
+            const token = resp.data.jwt;
+            const data = resp.data;
+            localStorage.setItem("token", token);
+            localStorage.setItem("username", data.user.username);
+            axios.defaults.headers.common["Authorization"] = token;
+            this.auth.token = data.jwt;
+            this.auth.userInfo = data.user;
+            resolve(resp);
+          })
+          .catch((err) => {
+            localStorage.removeItem("token");
+            reject(err);
+          });
+      });
+    },
+    login(user) {
+      return new Promise((resolve, reject) => {
+        axios({
+          url: "auth/local",
+          data: user,
+          method: "POST",
+        })
+          .then((resp) => {
+            const token = resp.data.jwt;
+            const data = resp.data;
+            localStorage.setItem("token", token);
+            localStorage.setItem("username", data.user.username);
+            axios.defaults.headers.common["Authorization"] = token;
+            this.auth.token = data.jwt;
+            this.auth.userInfo = data.user;
+            resolve(resp);
+          })
+          .catch((err) => {
+            localStorage.removeItem("token");
+            reject(err);
+          });
+      });
+    },
+    logout() {
+      this.auth = {};
+      localStorage.removeItem("token");
+    },
     async fetchProducts(params = {}) {
-      console.log(params);
       try {
         this.allProducts = [];
         const res = await axios.get(
